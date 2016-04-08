@@ -8,4 +8,5 @@
 * Write a headline and dek that relate to what you see in the data.
 * The source line should link to the [St. Louis Federal Reserve](https://research.stlouisfed.org/fred2/).
 
-Due before class on Tuesday April 12
+
+Due before class on Tuesday April 12 (Commit the completed project to your Git repo and send me the link).
