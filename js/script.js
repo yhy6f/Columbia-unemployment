@@ -20,7 +20,9 @@ var yAxis = d3.svg.axis()
 
 var line = d3.svg.line()
     .x(function(d) { 
-    	return x(formatDate.parse(d.observation_date)); 
+      // You don't need to format the date again. It's already formatted bc you passed it through the `type` function
+    	//return x(formatDate.parse(d.observation_date)); (Broken)
+      return x(d.observation_date); //(Fixed)
     })
     .y(function(d) { 
     	return y(d.CLMUR); 
