@@ -64,8 +64,25 @@ d3.tsv("data.tsv", type, function(error, data) {
       .datum(data)
       .attr("class", "line")
       .attr("d", line);
- });
 
+
+    var dots = svg.selectAll(".dot")
+        .data(data);
+    dots.enter()
+          .append("circle")
+          .attr("class", "dot");
+    // I wanted to mark the highest unemployment rates by creating these dots:
+    // for d in data;
+    //   if d.CLMUR == 6.6; 
+      dots
+        .attr("r", 5)
+        .attr("cx",function(d){ return x(d.observation_date); })
+        .attr("cy",function(d){ return y(d.CLMUR); })
+        .style("stroke","white")
+        .style("stroke-width","1px")
+        .style("fill", "blue");
+
+ });
 function type(d) {
   d.observation_date = formatDate.parse(d.observation_date);
   d.CLMUR = +d.CLMUR;
