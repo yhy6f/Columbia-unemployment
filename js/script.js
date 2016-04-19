@@ -67,10 +67,24 @@ d3.tsv("data.tsv", type, function(error, data) {
 
 
     var dots = svg.selectAll(".dot")
-        .data(data);
+        .data(data.filter(function(d) {
+          return d.CLMUR === 6.6;
+        }));
+    
+
     dots.enter()
           .append("circle")
           .attr("class", "dot");
+
+    /* ------------------- */
+    // See the "filter" function in the data call above.
+    // Basically, we want to filter the data to be limited to points where unemployment was 6.6.
+    // Then, we draw the dots from that limited data set.
+    // Here's an explanation of the `.filter` method: http://www.w3schools.com/jsref/jsref_filter.asp
+    // And here's a good example of a line chart with dots: http://bl.ocks.org/d3noob/8dc93bce7e7200ab487d
+    /* ------------------- */
+
+
     // I wanted to mark the highest unemployment rates by creating these dots:
     // for d in data;
     //   if d.CLMUR == 6.6; 
